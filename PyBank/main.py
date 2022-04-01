@@ -14,22 +14,43 @@ with open(csvpath) as csvfile:
 
 # Create Lists to Store Relevant Data
 
-#------- Total count of unique months
+#--- Step 1: Calculate Total count of unique months
 months = len(row[0])
 print(months)
 
-
-
-# Net total amount of Profit/Losses for the entire period
+#--- Step 2: Calculate Net total amount of Profit/Losses for the entire period
 
 profit_loss_total = sum(row[1])
 print(profit_loss_total)
 
+#--- Step 3: Calculate average of the monthly changes for the entire period
 
 
 
-#--- Add a message to show the number of months:
+#--- Step 4: Calculate The greatest increase in profits (date and amount) over the entire period
+
+
+
+#--- Step 5: Calculate the greatest increase in profits (date and amount) over the entire period
+
+
+#--- Step 6: Calculate the greatest decrease in losses (date and amount) over the entire period
+
+
+#--- Step 7: Summarise the findings into a single message 
 #Print(f"Greatest Decrease in Profits: {}
+
+#  Financial Analysis
+#  ----------------------------
+#  Total Months: 86
+#  Total: $38382578
+#  Average  Change: $-2315.12
+#  Greatest Increase in Profits: Feb-2012 ($1926159)
+#  Greatest Decrease in Profits: Sep-2013 ($-2196167)
+
+#--- Step 8: Export Data Table to Excel Table:
+
+
 
 """ ## PyBank
 
