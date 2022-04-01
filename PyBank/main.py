@@ -1,13 +1,37 @@
-here we go
+#First Step - Import CSV Data
+import os
+import csv
+
+from pandas import value_counts
+csvpath = os.path.join('Resources', 'budget_data.csv')
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    print(csvreader)
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
+    for row in csvreader:
+      print(row)
+
+# Create Lists to Store Relevant Data
+
+#------- Total count of unique months
+months = len(row[0])
+print(months)
+
+
+
+# Net total amount of Profit/Losses for the entire period
+
+profit_loss_total = sum(row[1])
+print(profit_loss_total)
 
 
 
 
+#--- Add a message to show the number of months:
+#Print(f"Greatest Decrease in Profits: {}
 
-
-
-
-## PyBank
+""" ## PyBank
 
 ![Revenue](Images/revenue-per-lead.png)
 
@@ -55,4 +79,4 @@ here we go
 
 * Always commit your work and back it up with GitHub pushes. You don't want to lose hours of your work because you didn't push it to GitHub every half hour or so.
 
-* **Commit often**.
+* **Commit often**. """
