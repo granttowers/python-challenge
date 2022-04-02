@@ -1,27 +1,23 @@
-#First Step - Import CSV Data
+# Import CSV Data
 import os
 import csv
-
-from pandas import value_counts
 csvpath = os.path.join('Resources', 'budget_data.csv')
+
+# Definition of Variables
+#monthlyprofitloss = int(row[1]) 
+
+#--- Step 1: Calculate Total count of unique months - count added to monthcount
 with open(csvpath) as csvfile:
-    csvreader = csv.reader(csvfile, delimiter=',')
-    print(csvreader)
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
-    for row in csvreader:
-      print(row)
+  csvreader = csv.reader(csvfile, delimiter=',')
+  csv_header = next(csvreader)
+  monthcount = sum(1 for line in csvfile)
 
-# Create Lists to Store Relevant Data
-
-#--- Step 1: Calculate Total count of unique months
-months = len(row[0])
-print(months)
 
 #--- Step 2: Calculate Net total amount of Profit/Losses for the entire period
 
-profit_loss_total = sum(row[1])
-print(profit_loss_total)
+
+#profit_loss_total = sum(int(row[1]))
+#print(profit_loss_total)
 
 #--- Step 3: Calculate average of the monthly changes for the entire period
 
@@ -38,11 +34,17 @@ print(profit_loss_total)
 
 
 #--- Step 7: Summarise the findings into a single message 
-#Print(f"Greatest Decrease in Profits: {}
+
+print(f"Financial Analysis")
+print(f"----------------------------")
+print(f"Total Months: {monthcount}")
+print(f"Total: ")
+
+# "Greatest Decrease in Profits: {}
 
 #  Financial Analysis
 #  ----------------------------
-#  Total Months: 86
+#  Total Months: 86 
 #  Total: $38382578
 #  Average  Change: $-2315.12
 #  Greatest Increase in Profits: Feb-2012 ($1926159)
