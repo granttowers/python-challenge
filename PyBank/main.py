@@ -13,17 +13,12 @@ with open(csvpath) as csvfile:
   csvreader = csv.reader(csvfile, delimiter=',')
   csv_header = next(csvreader)
 
-#--- Step 1: Calculate Total count of unique months - count added to monthcount
-  #monthcount = sum(1 for line in csvfile)
-
-#--- Step 2: Calculate Net total amount of Profit/Losses for the entire period
-
-# ForLoop: loop through each row
+#--- Step 1: Calculate Total count of unique months - created a for loop to append each of thecount added to monthcount
   for row in csvreader:
     months.append(row[0])
+
+#--- Step 2: Calculate Net total amount of Profit/Losses for the entire period
     total.append(int(row[1]))
-    #grtincrease.append(int(row[1]))
-    #grtdecrease.append(int(row[1]))
 
 #--- Step 3: Calculate average of the monthly changes for the entire period - how does this work?
 monthly_change = [y-x for x, y in zip(total[:-1], total[1:])]
@@ -34,7 +29,6 @@ for a, b in enumerate(monthly_change):
   if b == max(monthly_change):
     
     months_max_index = (a+1)
-    print(months_max_index)
 
 for c in [months[months_max_index]]:
     grtincrease_month = c
@@ -48,7 +42,7 @@ for d, e in enumerate(monthly_change):
 for f in [months[months_min_index]]:
     grtdecrease_month = f
 
-#--- Step 7: Summarise the findings into a single message 
+#--- Step 6: Summarise the findings into a single message 
 
 print(f"Financial Analysis")
 print(f"----------------------------")
@@ -58,7 +52,7 @@ print(f"Average Change: ${round(sum(monthly_change)/len(monthly_change),2)}")
 print(f"Greatest Increase in Profits: {grtincrease_month} (${max(monthly_change)})")
 print(f"Greatest Decrease in Profits: {grtdecrease_month} (${min(monthly_change)})")
 
-#--- Step 8: Export Data Table to Excel Table:
+#--- Step 7: Export Data Table to Excel Table:
 
 # Specify the file to write to and open in write mode. 
 output_path = os.path.join('Resources', 'budget_result.csv')
